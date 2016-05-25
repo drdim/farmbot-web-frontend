@@ -1,10 +1,8 @@
 import * as React from "react";
-import { Navbar } from "../components/navbar";
+import { Navbar } from "../components/nav/navbar";
 import { ToggleButton } from "./toggle_button";
-import { store } from "../store";
 import { DirectionButton } from "./direction_button";
-import { fetchDevice,
-         sendCommand,
+import { sendCommand,
          changeStepSize,
          changeAxisBuffer,
          commitAxisChanges,
@@ -86,7 +84,7 @@ class ControlsPage extends React.Component<any, any> {
 
     return(
       <div>
-        <Navbar/>
+          <Navbar { ...this.props } />
           <div className="all-content-wrapper">
           <div ng-view className="ng-scope">
             <div className="row ng-scope">
@@ -98,18 +96,28 @@ class ControlsPage extends React.Component<any, any> {
                         <button
                           className="red button-like widget-control"
                           type="button"
-                          onClick={ () => this.props.dispatch(sendCommand({name: "emergencyStop" })) } >
+                          onClick={
+                            () => this.props.dispatch(sendCommand({name: "emergencyStop" }))
+                          } >
 
                           E-STOP
 
                         </button>
                         <div className="widget-header">
                           <h5>Move</h5>
+                          <i className="fa fa-question-circle widget-help-icon">
+                            <div className="widget-help-text">Use these manual
+                            control buttons to move FarmBot in realtime. Press the
+                            arrows for relative movements or type in new
+                            coordinates and press <strong>GO</strong> for an
+                            absolute movement. Tip: Press the Home button when
+                            you are done so FarmBot is ready to get back to work.</div>
+                          </i>
                         </div>
                       </div>
                       <div className="col-sm-12">
                         <div className="widget-content">
-                          <label className="text-center">MOVE AMOUNT (mm) Busy</label>
+                          <label className="text-center">MOVE AMOUNT (mm)</label>
                           <div className="row">
                             <div className="col-sm-12">
                               <StepSizeSelector
@@ -125,33 +133,56 @@ class ControlsPage extends React.Component<any, any> {
                                   <td />
                                   <td />
                                   <td>
-                                    <DirectionButton axis="y" direction="up" steps={ bot.stepSize || 1000 } {...this.props} />
+                                    <DirectionButton axis="y"
+                                                     direction="up"
+                                                     steps={ bot.stepSize || 1000 }
+                                                     {...this.props} />
                                   </td>
                                   <td />
                                   <td />
                                   <td>
-                                    <DirectionButton axis="z" direction="down" steps={ bot.stepSize || 1000 } {...this.props} />
+                                    <DirectionButton axis="z"
+                                                     direction="down"
+                                                     steps={ bot.stepSize || 1000 }
+                                                     {...this.props} />
                                   </td>
                                 </tr>
                                 <tr>
                                   <td>
                                     <button
                                      className="button-like i fa fa-home arrow-button"
-                                     onClick={ () => this.props.dispatch(sendCommand({name: "homeAll", speed: (bot.hardware.s || 100) })) } />
+                                     onClick={
+                                       () => this.props.dispatch(sendCommand({
+                                         name: "homeAll",
+                                         speed: (bot.hardware.s || 100)
+                                       }))
+                                     } />
                                   </td>
                                   <td />
                                   <td>
-                                    <DirectionButton axis="x" direction="left" steps={ bot.stepSize || 1000 } {...this.props} />
+                                    <DirectionButton axis="x"
+                                                     direction="left"
+                                                     steps={ bot.stepSize || 1000 }
+                                                     {...this.props} />
                                   </td>
                                   <td>
-                                    <DirectionButton axis="y" direction="down" steps={ bot.stepSize || 1000 } {...this.props} />
+                                    <DirectionButton axis="y"
+                                                     direction="down"
+                                                     steps={ bot.stepSize || 1000 }
+                                                     {...this.props} />
                                   </td>
                                   <td>
-                                    <DirectionButton axis="x" direction="right" steps={ bot.stepSize || 1000 } {...this.props} />
+                                    <DirectionButton axis="x"
+                                                     direction="right"
+                                                     steps={ bot.stepSize || 1000 }
+                                                     {...this.props} />
                                   </td>
                                   <td />
                                   <td>
-                                    <DirectionButton axis="z" direction="up" steps={ bot.stepSize || 1000 } {...this.props} />
+                                    <DirectionButton axis="z"
+                                                     direction="up"
+                                                     steps={ bot.stepSize || 1000 }
+                                                     {...this.props} />
                                   </td>
                                 </tr>
                                 <tr>
@@ -186,6 +217,14 @@ class ControlsPage extends React.Component<any, any> {
                         </button>
                         <div className="widget-header">
                           <h5>Tools</h5>
+                          <i className="fa fa-question-circle widget-help-icon">
+                            <div className="widget-help-text">Use these toggle
+                            switches to control FarmBot's tools and peripherals
+                            in realtime. To edit and create new tools, press
+                            the <strong>EDIT</strong> button. Make sure to turn
+                            things off when you're done! Coming soon: a working
+                            edit button.</div>
+                          </i>
                         </div>
                       </div>
                       <div className="col-sm-12">
@@ -199,7 +238,9 @@ class ControlsPage extends React.Component<any, any> {
                             </div>
                             <div className="col-sm-4">
                               <ToggleButton toggleval={ bot.hardware.pin9 }
-                                            toggleAction={ () => this.props.dispatch(pinToggle(9)) } />
+                                            toggleAction={
+                                              () => this.props.dispatch(pinToggle(9))
+                                            } />
                             </div>
                           </div>
                           <div className="row">
@@ -211,7 +252,9 @@ class ControlsPage extends React.Component<any, any> {
                             </div>
                             <div className="col-sm-4">
                               <ToggleButton toggleval={ bot.hardware.pin10 }
-                                            toggleAction={ () => this.props.dispatch(pinToggle(10)) } />
+                                            toggleAction={
+                                              () => this.props.dispatch(pinToggle(10))
+                                            } />
                             </div>
                           </div>
                           <div className="row">
@@ -223,7 +266,9 @@ class ControlsPage extends React.Component<any, any> {
                             </div>
                             <div className="col-sm-4">
                               <ToggleButton toggleval={ bot.hardware.pin13 }
-                                            toggleAction={ () => this.props.dispatch(pinToggle(13)) } />
+                                            toggleAction={
+                                              () => this.props.dispatch(pinToggle(13))
+                                            } />
                             </div>
                           </div>
                         </div>
@@ -244,6 +289,11 @@ class ControlsPage extends React.Component<any, any> {
                         </button>
                         <div className="widget-header">
                           <h5>Camera</h5>
+                          <i className="fa fa-question-circle widget-help-icon">
+                            <div className="widget-help-text">Press the <strong>EDIT
+                            </strong> button to add the URL of a livestream of
+                            your FarmBot. Coming soon: A working edit button.</div>
+                          </i>
                         </div>
                       </div>
                     </div>

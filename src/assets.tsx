@@ -9,8 +9,8 @@ eval("window.$ = qqq; window.jQuery = $;");
 
 // Programmatically add *.css and *.js from CDN to dom.
 // If there"s a way to (easily) do this with WebPack, submit a PR!
-export function loadFromCdn(filename, filetype) {
-    let fileref;
+export function loadFromCdn(filename: string, filetype: string) {
+    let fileref: Element;
     if (filetype === "js") { // if filename is a external JavaScript file
         fileref = document.createElement("script");
         fileref.setAttribute("type", "text/javascript");
@@ -36,17 +36,20 @@ require("!style!css!sass!./css/farm_designer.scss");
 require("!style!css!sass!./css/farm_designer_mobile.scss");
 require("!style!css!sass!./css/farmbot.scss");
 require("!style!css!sass!./css/inputs.scss");
+require("!style!css!sass!./css/labels.scss");
 require("!style!css!sass!./css/farm_designer_panels.scss");
 require("!style!css!sass!./css/map.scss");
 require("!style!css!sass!./css/navbar.scss");
+require("!style!css!sass!./css/regimen_builder_mobile.scss");
+require("!style!css!sass!./css/regimen_editor_widget.scss");
 require("!style!css!sass!./css/search.scss");
+require("!style!css!sass!./css/status_ticker.scss");
 require("!style!css!sass!./css/steps.scss");
 require("!style!css!sass!./css/tables.scss");
 require("!style!css!sass!./css/tooltips.scss");
 require("!style!css!sass!./css/widgets.scss");
 require("!style!css!sass!./css/widget_move.scss");
 require("!style!css!sass!./css/widget_tool_control.scss");
-require("!style!css!sass!./css/regimen_builder_mobile.scss");
 
 loadFromCdn(
   "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css",

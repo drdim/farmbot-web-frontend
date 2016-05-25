@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Navbar } from "../components/navbar";
+import { Navbar } from "./nav/navbar";
 import { Link } from "react-router";
 import { login, register } from "./auth/auth_actions";
 import { connect } from "react-redux";
@@ -70,7 +70,11 @@ class LoginPage extends React.Component<any, any> {
                         <div className="row">
                           <div className="col-xs-6">
                             <p className="auth-link">
-                              <Link to={ "route_for_resetting_password" }>Reset password</Link>
+                              <a href={
+                                  this.props.config.farmbotApiUrl + "/users/password/new"
+                                }>
+                                Reset password
+                              </a>
                             </p>
                           </div>
                           <div className="col-xs-6">
