@@ -43,7 +43,7 @@ export function fetchSequences() {
     let { iss, token } = state;
 
     let headers = authHeaders(token);
-    axios.get<Array<Sequence>>(`${iss}/api/sequences`, headers)
+    axios.get<Array<Sequence>>(`${iss}api/sequences`, headers)
       .then(({data}) => {
         dispatch(fetchSequencesOk(data));
       }, (e: Error) => {
@@ -115,7 +115,7 @@ export function saveSequence(sequence: Sequence) {
   return function(dispatch: Function, getState: Function) {
     let state: AuthState = getState().auth;
     let { iss, token } = state;
-    let url = `${iss}/api/sequences/`;
+    let url = `${iss}api/sequences/`;
     let method: Function;
     if (sequence._id) {
       url += sequence._id;
@@ -211,7 +211,7 @@ function deleteSavedSequence({
                                  iss,
                                  token
                                }: SequenceDeletionParams) {
-  let url = `${iss}/api/sequences/${sequence._id}`;
+  let url = `${iss}api/sequences/${sequence._id}`;
   return axios.delete(url, authHeaders(token));
 };
 

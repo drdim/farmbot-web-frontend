@@ -23,7 +23,7 @@ export class Plant {
     return $.ajax({
       method: "GET",
       headers: fakeHeaders,
-      url: "//THIS_URL_MUST_CHANGE" + "/api/plants"
+      url: "http://myapp.smartp.online" + "/api/plants"
     });
   };
 
@@ -31,7 +31,7 @@ export class Plant {
     return $.ajax({
       method: "POST",
       headers: fakeHeaders,
-      url: "//THIS_URL_MUST_CHANGE" + "/api/plants",
+      url: "http://myapp.smartp.online" + "/api/plants",
       data: that
     });
   };
@@ -39,7 +39,7 @@ export class Plant {
   static destroy(that) {
     return $.ajax({
       method: "DELETE",
-      url: "//THIS_URL_MUST_CHANGE" + "/api/plants/" + that._id
+      url: "http://myapp.smartp.online" + "/api/plants/" + that._id
     });
   };
 
