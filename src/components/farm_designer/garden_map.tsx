@@ -11,6 +11,7 @@ export class MapPoint extends React.Component<any, any> {
   }
 
   render() {
+
     let length = 240; // this.props.global.planting_area.length;
     let fill = this.selected() ? "red" : "black";
     return <circle cx={ this.props.plant.x }
@@ -40,7 +41,6 @@ export class GardenMap extends React.Component<any, any> {
     };
 
     let width = length = 240; // this.props.global.planting_area;
-
     return <div>
              <div className="drop-area"
                   id="drop-area"
