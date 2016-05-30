@@ -8,7 +8,7 @@ let fakeHeaders = { // TODO: Add auth scheme.
 
 export class Plant {
   static designerUrl = function(plant) {
-    return "/dashboard/designer?p1=PlantInfo" +
+    return "/app/dashboard/designer?p1=PlantInfo" +
            "&id=" + plant._id;
   };
 
@@ -23,7 +23,7 @@ export class Plant {
     return $.ajax({
       method: "GET",
       headers: fakeHeaders,
-      url: "//THIS_URL_MUST_CHANGE" + "/api/plants"
+      url: "//myapp.smartp.online" + "/api/plants"
     });
   };
 
@@ -31,7 +31,7 @@ export class Plant {
     return $.ajax({
       method: "POST",
       headers: fakeHeaders,
-      url: "//THIS_URL_MUST_CHANGE" + "/api/plants",
+      url: "//myapp.smartp.online" + "/api/plants",
       data: that
     });
   };
@@ -39,7 +39,7 @@ export class Plant {
   static destroy(that) {
     return $.ajax({
       method: "DELETE",
-      url: "//THIS_URL_MUST_CHANGE" + "/api/plants/" + that._id
+      url: "//myapp.smartp.online" + "/api/plants/" + that._id
     });
   };
 

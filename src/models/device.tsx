@@ -5,14 +5,14 @@ export class Device {
   static fetch = function() {
     return $.ajax({
       method: "GET",
-      url: "//THIS_URL_MUST_CHANGE" + "/api/device"
+      url: "//myapp.smartp.online" + "/api/device"
     });
   };
 
   static save = function (that) {
     return $.ajax({
       method: "POST",
-      url: "//THIS_URL_MUST_CHANGE" + "/api/device",
+      url: "//myapp.smartp.online" + "/api/device",
       data: that
     });
   };
@@ -20,7 +20,7 @@ export class Device {
   static destroy = function (that) {
     return $.ajax({
       method: "DELETE",
-      url: "//THIS_URL_MUST_CHANGE" + "/api/device"
+      url: "//myapp.smartp.online" + "/api/device"
     });
   };
   public _id: String;

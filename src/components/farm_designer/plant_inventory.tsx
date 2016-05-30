@@ -15,25 +15,25 @@ export class Plants extends React.Component<any, any> {
           <div className="panel-tabs">
             <ul>
               <li className="hidden-sm hidden-md hidden-lg">
-                  <Link to={ "/dashboard/designer?p1=NoTab" }>Designer</Link>
+                  <Link to={ "/app/dashboard/designer?p1=NoTab" }>Designer</Link>
               </li>
               <li>
-              <Link to={ { pathname: "/dashboard/designer", query: { p1: "Plants" }} } className={"active"}>
+              <Link to={ { pathname: "/app/dashboard/designer", query: { p1: "Plants" }} } className={"active"}>
                 Plants
               </Link>
               </li>
               <li>
-                <Link to={ { pathname: "/dashboard/designer", query: { p1: "Groups" }} }>
+                <Link to={ { pathname: "/app/dashboard/designer", query: { p1: "Groups" }} }>
                   Groups
                 </Link>
               </li>
               <li>
-              <Link to={ { pathname: "/dashboard/designer", query: { p1: "Zones" }} } className={"active"}>
+              <Link to={ { pathname: "/app/dashboard/designer", query: { p1: "Zones" }} } className={"active"}>
                 Zones
               </Link>
               </li>
               <li className="hidden-sm hidden-md hidden-lg">
-                  <Link to={ "/dashboard/designer?p1=Panel2" }>Calendar</Link>
+                  <Link to={ "/app/dashboard/designer?p1=Panel2" }>Calendar</Link>
               </li>
             </ul>
           </div>
@@ -47,7 +47,7 @@ export class Plants extends React.Component<any, any> {
             <List plants={ this.props.plants.all } />
           </div>
         </div>
-        <Link to="/dashboard/designer?p1=SpeciesCatalog">
+        <Link to="/app/dashboard/designer?p1=SpeciesCatalog">
           <div className="plus-button add-plant button-like" data-toggle="tooltip" title="Add plant">
             <i className="fa fa-2x fa-plus" />
           </div>
