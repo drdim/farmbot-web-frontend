@@ -5,22 +5,22 @@ export class Device {
   static fetch = function() {
     return $.ajax({
       method: "GET",
-      url: "http://myapp.smartp.online" + "/api/device"
+      url: "//myapp.smartp.online" + "/api/device"
     });
   };
 
   static save = function (that) {
     return $.ajax({
       method: "POST",
-      url: "http://myapp.smartp.online" + "/api/device",
+      url: "//myapp.smartp.online" + "/api/device",
       data: that
     });
   };
 
-  static destroy = function (that) {
+  static destroy = function () {
     return $.ajax({
       method: "DELETE",
-      url: "http://myapp.smartp.online" + "/api/device"
+      url: "//myapp.smartp.online" + "/api/device"
     });
   };
   public _id: String;
